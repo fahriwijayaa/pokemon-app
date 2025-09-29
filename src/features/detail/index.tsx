@@ -46,7 +46,7 @@ const DetailScreen: React.FC = () => {
   if (loading) return <DetailSkeleton />;
   if (error) return <div className="p-4 text-center text-red-500">{error}</div>;
   if (!pokemon)
-    return <div className="p-4 text-center">Data Pokémon tidak ditemukan</div>;
+    return <div className="p-4 text-center">Pokémon data not found</div>;
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-4">
@@ -68,7 +68,7 @@ const DetailScreen: React.FC = () => {
 
       {isCaught && (
         <div className="col-span-1 md:col-span-2 text-center text-green-400 font-semibold">
-          Pokémon ini sudah ditangkap!
+          This Pokémon has been caught!
         </div>
       )}
     </div>

@@ -31,7 +31,7 @@ export const useBattlePokemon = ({
 
       const data = await getPokemonDetail(name);
       if (!data) {
-        setError("Pokémon tidak ditemukan");
+        setError("No Pokémon found");
         setLoading(false);
         return;
       }
@@ -62,25 +62,25 @@ export const useBattlePokemon = ({
       const success = Math.random() < 0.5;
       if (!success) {
         setPokemonVisible(false);
-        alert(`${pokemon.name} kabur!`);
+        alert(`${pokemon.name} run away!`);
         return;
       }
 
-      const nickname = prompt(`Berikan nickname untuk ${pokemon.name}:`);
+      const nickname = prompt(`Give a nickname to ${pokemon.name}:`);
       if (!nickname) {
-        alert("Nickname wajib diisi!");
+        alert("Nickname must be filled in!");
         return;
       }
 
       const isSaved = catchPokemon(pokemon, nickname);
       if (!isSaved) {
-        alert("Nickname sudah dipakai, gunakan yang lain!");
+        alert("That nickname is already taken, please use another one!");
         return;
       }
 
       setCaught(true);
       alert(
-        `Selamat! Kamu menangkap ${pokemon.name} dengan nickname "${nickname}"`
+        `Congratulations! You caught ${pokemon.name} with the nickname “${nickname}”.`
       );
 
       // langsung kembali ke home
